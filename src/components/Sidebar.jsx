@@ -20,7 +20,7 @@ const Sidebar = () => {
         <div className='p-4 flex items-center justify-between'>
           <div className='flex items-center gap-5'>
             <img className='ml-4 w-6' src={assets.stack_icon} alt="Stack Icon" />
-              <p className='font-semibold'>Your Library</p>
+              <p className='text-[#b3b3b3] font-semibold'>Your Library</p>
           </div>
 
           <div className='flex items-center gap-3'>
