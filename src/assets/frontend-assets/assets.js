@@ -23,6 +23,7 @@ import arrow_left from './left_arrow.png'
 import spotify_logo from './spotify_logo.png'
 import clock_icon from './clock_icon.png'
 import download from './download.svg'
+import mute from './mute.svg'
 import img1 from './img1.jpg'
 import img2 from './img2.jpg'
 import img3 from './img3.jpg'
@@ -68,7 +69,8 @@ export const assets = {
     arrow_right,
     spotify_logo,
     clock_icon,
-    download
+    download,
+    mute
 }
 
 export const albumsData = [

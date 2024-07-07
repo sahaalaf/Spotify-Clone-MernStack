@@ -15,7 +15,7 @@ const Navbar = () => {
                 </div>
 
                 <div className='flex items-center gap-3 mt-4'>
-                    <p className='bg-white text-black text-[15px] px-4 py-1 hidden md:block rounded-2xl cursor-pointer'>Explore Premium</p>
+                    <p className='bg-white text-black text-[15px] px-4 py-1 hidden md:block rounded-2xl cursor-pointer hover:text-[15.4px]'>Explore Premium</p>
                     <p className='bg-black text-white px-3 py-1 rounded-2xl text-[15px] cursor-pointer flex items-center gap-1'><span><img className='w-4 h-4' src={assets.download}/></span>Install App</p>
                     <p><i className="fa-regular fa-bell text-[20px] bg-black w-8 h-8 rounded-2xl flex items-center justify-center p-2 cursor-pointer"></i></p>
                     <p className='bg-purple-500 text-black w-7 h-7 rounded-2xl flex items-center justify-center cursor-pointer'>S</p>

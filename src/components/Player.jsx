@@ -1,31 +1,38 @@
-import React from 'react'
-import { assets, songsData } from '../assets/frontend-assets/assets'
+import React, { useContext } from 'react'
+import { assets } from '../assets/frontend-assets/assets'
+import { PlayerContext } from '../context/PlayerContext';
 
 const player = () => {
+
+  const { song, seekBar, seekBackground, playStatus, play, pause, time, prev, next, jumpSong, manageVolume, volume, muteSong, isMuted} = useContext(PlayerContext);
+
   return (
     <div className='h-[10%] bg-black flex justify-between items-center text-white px-4'>
       <div className='hidden lg:flex items-center gap-4'>
-        <img className='w-12' src={songsData[0].image} />
+        <img className='w-12' src={song.image} />
         <div>
-          <p>{songsData[0].name}</p>
-          <p>{songsData[0].desc.slice(0, 12)}</p>
+          <p>{song.name}</p>
+          <p>{song.desc.slice(0, 12)}</p>
         </div>
       </div>
 
       <div className='flex flex-col items-center gap-1 ml-8'>
         <div className='flex gap-7'>
           <img className='w-4 cursor-pointer' src={assets.shuffle_icon} />
-          <img className='w-4 cursor-pointer' src={assets.prev_icon} />
-          <img className='w-4 cursor-pointer' src={assets.play_icon} />
-          <img className='w-4 cursor-pointer' src={assets.next_icon} />
+          <img onClick={prev} className='w-4 cursor-pointer' src={assets.prev_icon} />
+          {playStatus
+            ? <img onClick={pause} className='w-4 cursor-pointer' src={assets.pause_icon} />
+            : <img onClick={play} className='w-4 cursor-pointer' src={assets.play_icon} />}
+
+          <img onClick={next} className='w-4 cursor-pointer' src={assets.next_icon} />
           <img className='w-4 cursor-pointer' src={assets.loop_icon} />
         </div>
         <div className='flex items-center gap-5'>
-          <p>1:06</p>
-          <div className='w-[30vw] max-w[500px] bg-gray-300 rounded-full cursor-pointer'>
-            <hr className='h-1 border-none w-0 bg-green-800 rounded-full' />
+          <p>{time.currentTime.minutes}:{time.currentTime.seconds}</p>
+          <div ref={seekBackground} onClick={jumpSong} className='w-[30vw] max-w[500px] bg-[#a7a7a7] rounded-full cursor-pointer'>
+            <hr ref={seekBar} className='h-1 border-none w-0 bg-white rounded-full' />
           </div>
-          <p>3:56</p>
+          <p>{time.totalTime.minutes}:{time.totalTime.seconds}</p>
         </div>
       </div>
 
@@ -34,12 +41,19 @@ const player = () => {
         <img className='w-4' src={assets.mic_icon} />
         <img className='w-4' src={assets.queue_icon} />
         <img className='w-4' src={assets.speaker_icon} />
-        <img className='w-4' src={assets.volume_icon} />
+        <img onClick={muteSong} className='w-4 cursor-pointer' src={isMuted ? assets.mute : assets.volume_icon} />
 
-        <div className='w-20 bg-slate-50 h-1 rounded'>
-        </div>
+        <input 
+          type="range" 
+          min="0" 
+          max="1" 
+          step="0.01" 
+          value={volume} 
+          onChange={manageVolume} 
+          className='w-20 bg-slate-50 h-1 rounded cursor-pointer'
+        />
         <img className='w-4' src={assets.mini_player_icon} />
-          <img className='w-4' src={assets.zoom_icon} />
+        <img className='w-4' src={assets.zoom_icon} />
       </div>
     </div>
   )
