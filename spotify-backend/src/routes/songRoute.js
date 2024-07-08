@@ -1,4 +1,4 @@
-import { addSongs, listSongs, removeSongs, updateSong } from "../controllers/songController.js";
+import { addSongs, listSongs, removeSongs } from "../controllers/songController.js";
 import express from 'express'
 import update from "../middleware/multer.js";
 
