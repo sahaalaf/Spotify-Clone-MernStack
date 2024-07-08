@@ -76,46 +76,48 @@ export const assets = {
 export const albumsData = [
     {   
         id:0,
-        name: "Top 50 Global",
-        image: img8,
-        desc:"Your weekly update of the most played tracks",
-        bgColor:"#2a4365"
+        name: "Top Artist of 2024 Pakistan",
+        image: img15,
+        desc:"The most streamed artists of 2023 in Pakistan. Cover: Atif Aslam",
+        bgColor:"#744210"
     },
     {   
         id:1,
-        name: "Top 50 India",
+        name: "Still Rolin",
         image: img9,
-        desc:"Your weekly update of the most played tracks",
+        desc:"Shubh",
         bgColor:"#22543d"
     },
     {   
         id:2,
-        name: "Trending India",
-        image: img10,
-        desc:"Your weekly update of the most played tracks",
-        bgColor:"#742a2a"
-    },
-    {   
-        id:3,
-        name: "Trending Global",
-        image: img16,
-        desc:"Your weekly update of the most played tracks",
-        bgColor:"#44337a"
-    },
-    {   
-        id:4,
-        name: "Mega Hits",
+        name: "DesiPop",
         image: img11,
-        desc:"Your weekly update of the most played tracks",
+        desc:"Home to the Desi Pop Bops. For more desi bangers check out Desi HIts.",
         bgColor:"#234e52"
     },
     {   
+        id:3,
+        name: "Bhikra",
+        image: img8,
+        desc:"Abdul Hannan, Rovalio",
+        bgColor:"#2a4365"
+    },
+    
+    {   
+        id:4,
+        name: "Pakistani Pop",
+        image: img10,
+        desc:"Trending Pop hits in Pakistan. Cover: Zeb Bangash, Noorima Rehan, Nizam Torwal",
+        bgColor:"#742a2a"
+    },
+    {   
         id:5,
-        name: "Happy Favorites",
-        image: img15,
-        desc:"Your weekly update of the most played tracks",
-        bgColor:"#744210"
-    }
+        name: "Pakistani 10s Hit",
+        image: img16,
+        desc:"The biggest Pakistani bops of 10s. Cover: Young Stunners, QB, Shamoon Ismail",
+        bgColor:"#44337a"
+    },
+    
 ]
 
 export const songsData = [
