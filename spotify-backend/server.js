@@ -13,9 +13,10 @@ connectDB();
 connectCloudinary();
 // app middleware
 app.use(express.json()); 
+app.use(cors());
 app.use("/api/song", songRouter);
 app.use("/api/album", albumRouter)
-app.use(cors());
+
 
 // app route
 app.get('/', (request, response) => response.send("API is WORKING")); 
