@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { assets } from '../assets/admin-assets/assets'
 import axios from 'axios'
 import { url } from '../App';
@@ -45,6 +45,24 @@ const AddSong = () => {
     setLoading(false);
   };
 
+  const loadAlbumsInSongs = async ()=>{
+    try {
+      const res = await axios.get(`${url}/api/album/list`);
+      if(res.data.success){
+        setAlbumData(res.data.albums);
+      } else {
+        toast.error("Error Duting Loading Albums");
+      }
+      
+    } catch (error) {
+      toast.error("Error Occured.");
+    }
+  };
+
+  useEffect(()=>{
+    loadAlbumsInSongs();
+  },[]);
+
    return loading ? (
     <div className='grid place-items-center min-h-[80vh]'>
       <div className='w-16 h-16 place-self-center border-4 border-gray-400 border-t-green-800 rounded-full animate-spin'>
@@ -84,11 +102,12 @@ const AddSong = () => {
         <p>Song Album</p>
         <select onChange={(e) => { setAlbum(e.target.value) }} defaultValue={album} className='bg-transparent outline-green-600 border-2 border-gray-400 p-2 w-[20rem]'>
           <option value="none">None</option>
+          {albumData.map((item, index)=>(<option value={item.name} key={index}>{item.name}</option>))}
         </select>
       </div>
       <button className='bg-black p-2 rounded-md text-white w-[100px] cursor-pointer'>Add Song</button>
     </form>
-  )
+  ) 
 }
 
 export default AddSong;
